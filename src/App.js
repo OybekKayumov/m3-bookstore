@@ -1,9 +1,20 @@
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css';
+import Navbar from './components/Navigation';
+import Books from './components/appBook';
+import Categories from './components/PageCateg';
 
 const App = () => (
-  <div>
-    <h1>Hello BookStore</h1>
-  </div>
+  <Router>
+    <Navbar />
+    <section className="content">
+      <Routes>
+        <Route path="/*" element={<Books />} />
+        <Route path="/categories" element={<Categories />} />
+      </Routes>
+    </section>
+  </Router>
 );
 
 export default App;
