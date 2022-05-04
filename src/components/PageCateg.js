@@ -9,7 +9,6 @@ const Categories = () => {
 
   const handleClick = () => {
     dispatch(checkStatus());
-    // dispatch({ type: 'CHECK_STATUS' });
   };
 
   return (

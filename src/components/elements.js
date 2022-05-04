@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import './pages.css';
 import progress from '../assets/progress.png';
-import { removeElement } from '../redux/books/Books';
+import { deleteBook } from '../redux/books/Books';
 
 const ItemBook = (props) => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const ItemBook = (props) => {
   } = props;
 
   const handleRemoveBook = () => {
-    dispatch(removeElement(id));
+    dispatch(deleteBook(id));
   };
 
   return (
@@ -51,11 +51,10 @@ const ItemBook = (props) => {
 };
 
 ItemBook.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   categories: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-
 };
 
 export default ItemBook;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import './pages.css';
-import { addElement } from '../redux/books/Books';
+import { sentBook } from '../redux/books/Books';
 
 const Form = () => {
   const initialFormState = {
@@ -31,8 +31,19 @@ const Form = () => {
       categories: formState.category[0],
     };
 
-    dispatch(addElement(newBook));
+    dispatch(sentBook(newBook));
   };
+
+  const arrCategories = [
+    'Historical',
+    'Fantasy',
+    'Periodicals',
+    'Realistic',
+    'Sci-Fi',
+    'Thriller',
+    'Biography',
+    'Comedy',
+  ];
 
   return (
     <form onSubmit={submitBookToStore} className="form-container">
@@ -42,10 +53,11 @@ const Form = () => {
         <input name="author" type="text" placeholder="Book author" onChange={handleChange} required />
         <select name="category" id="categories" onChange={handleChange} required>
           <option value="">Category</option>
-          <option value="novell">Novell</option>
-          <option value="comedy">Comedy</option>
-          <option value="fairytale">Fairytale</option>
-          <option value="drama">Drama</option>
+          {
+            arrCategories.map((category) => (
+              <option key={category} value={category}>{category}</option>
+            ))
+          }
         </select>
         <button type="submit">ADD BOOK</button>
       </div>
