@@ -6,6 +6,7 @@
   align-items: flex-start;
   padding: 2rem;
   gap: 1rem;
+  background-color: #f3f1f2;
 }
 
 .book-list {
