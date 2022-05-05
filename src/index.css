@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&family=Roboto+Slab:wght@100;300;400;500;600;700;800;900&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -6,17 +8,23 @@
 
 html {
   font-size: 62.5%;
-  height: 100%;
-  width: 100%;
+  box-sizing: border-box;
   scroll-behavior: smooth;
+  font-family: Montserrat, sans-serif;
+  height: 100vh;
+  width: 100vw;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: steelblue;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(228, 230, 241);
 }
 
-button {
+/* button {
   padding: 0.4rem 1rem;
   color: #fff;
   background-color: #333;
@@ -24,15 +32,26 @@ button {
   border: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-}
+} */
 
-/* .root {
-  height: 100vh;
-  width: 100%;
+.root {
+  height: 88vh;
+  width: 88%;
   background-color: #fff;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-} */
+  box-shadow: 18px 24px 38px -14px rgba(0, 0, 0, 0.4);
+}
+
+:root {
+  --roboto-font: 'Roboto Slab', serif;
+  --montserrat-font: 'Montserrat', sans-serif;
+  --white-color: #fff;
+  --main-color: #0290ff;
+  --lightgray-color: #f5f6fa;
+  --gray-color: #e8e8e8;
+  --darkgray-color: #888;
+}
