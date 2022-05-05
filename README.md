@@ -4,12 +4,20 @@
 
 This is a website to display a list of books using an API, we can also add new books and removing it.
 
+![image](https://user-images.githubusercontent.com/85465559/166859956-e9f6eeb5-22cb-45c2-af05-cdf37430668a.png)
+
+
 ## Built With
 
 - HTML
 - CSS
 - React
 - Redux
+- Netlify
+
+## Live Demo
+
+[live link netlify](https://m3-bookstore.netlify.app/)
 
 ## Getting Started
 
