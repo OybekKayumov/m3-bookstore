@@ -14,7 +14,7 @@ const Categories = () => {
   return (
     <>
       <h1>{status}</h1>
-      <button onClick={handleClick} type="button">Check status</button>
+      <button className="btn-c-solid" onClick={handleClick} type="button">Check status</button>
     </>
   );
 };

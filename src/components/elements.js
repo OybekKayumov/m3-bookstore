@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import './pages.css';
-import progress from '../assets/progress.png';
+// import progress from '../assets/progress.png';
 import { deleteBook } from '../redux/books/Books';
 
 const ItemBook = (props) => {
@@ -14,6 +14,14 @@ const ItemBook = (props) => {
 
   const handleRemoveBook = () => {
     dispatch(deleteBook(id));
+  };
+
+  const [percentage, setPercentage] = useState(Math.floor(Math.random() * 90));
+
+  const increasePerc = () => {
+    if (percentage < 100) {
+      setPercentage(percentage + 10 <= 100 ? percentage + 10 : 100);
+    }
   };
 
   return (
@@ -31,19 +39,31 @@ const ItemBook = (props) => {
         </div>
       </div>
       <div className="block-r">
-        <div className="stats">
-          <figure>
-            <img className="progress-circle" alt="progress-circle" src={progress} />
-          </figure>
-          <div className="progress-text">
-            <span className="stat-number">70%</span>
-            <span className="stat-text">Completed</span>
+        <div className="progress">
+          <svg className="svg" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="42" strokeDasharray="264 0" />
+            <circle
+              className="bar"
+              cx="50"
+              cy="50"
+              r="42"
+              strokeDasharray={`${percentage * 2.64} ${
+                (100 - percentage) * 2.64
+              }`}
+            />
+          </svg>
+          <div className="count">
+            <p>{`${percentage}%`}</p>
+            <span>Completed</span>
           </div>
         </div>
-        <div className="progress-info">
-          <span className="chapter-title">Current chapter</span>
-          <span className="chapter-number">Chapter 1</span>
-          <button type="button">UPDATE PROGRESS</button>
+
+        <div className="progress-info-container">
+          <div className="progress-info">
+            <span className="chapter-title">Current chapter</span>
+            <span className="chapter-number">Chapter 1</span>
+          </div>
+          <button className="btn-a-solid" type="button" onClick={increasePerc}>UPDATE PROGRESS</button>
         </div>
       </div>
     </div>

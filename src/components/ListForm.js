@@ -28,7 +28,7 @@ const Form = () => {
       id: uuidv4(),
       title: formState.title[0],
       author: formState.author[0],
-      categories: formState.category[0],
+      category: formState.category[0],
     };
 
     dispatch(sentBook(newBook));
@@ -45,21 +45,24 @@ const Form = () => {
     'Comedy',
   ];
 
+  const formBoolean = true;
+
   return (
     <form onSubmit={submitBookToStore} className="form-container">
       <h1>ADD NEW BOOK</h1>
       <div className="form-inputs">
-        <input name="title" type="text" placeholder="Book title" onChange={handleChange} required />
-        <input name="author" type="text" placeholder="Book author" onChange={handleChange} required />
-        <select name="category" id="categories" onChange={handleChange} required>
-          <option value="">Category</option>
+        <input name="title" type="text" placeholder="Book Title" onChange={handleChange} required />
+        <input name="author" type="text" placeholder="Book Author" onChange={handleChange} required />
+        <select name="category" onChange={handleChange} required>
+          <option value="">Categories</option>
+          <option disabled={formBoolean} value="">--------------</option>
           {
             arrCategories.map((category) => (
               <option key={category} value={category}>{category}</option>
             ))
           }
         </select>
-        <button type="submit">ADD BOOK</button>
+        <button className="btn-b-solid" type="submit">ADD BOOK</button>
       </div>
     </form>
   );
